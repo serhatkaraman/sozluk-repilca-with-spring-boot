@@ -8,8 +8,6 @@ public interface EntryService {
 
     List<Entry> findAll();
 
-//    List<Entry> findTodayEntries(String today, int topic_id);
-
-    List<Entry> getTodayEntries(String createdDate, int userId);
+    List<Entry> getTodayEntries(String createDate, int topicId);
 
 }

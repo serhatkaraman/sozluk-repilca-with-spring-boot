@@ -56,7 +56,13 @@
 
     </div>
     <div class="col mh-100 overflow-auto py-2 inner-border">
-
+        <h4 th:text="${todayEntries[0].topic.name}"></h4>
+          <div th:each="tempEntry : ${todayEntries}">
+            <p th:text="${tempEntry.content}"></p>
+            <p class="justify-content-end" th:text="${tempEntry.user.username}" style="text-align: right"></p>
+            <p class="justify-content-end" th:text="${tempEntry.createdDate}" style="text-align: right"></p>
+            <br>
+          <div/>
 
     </div>
   </div>
