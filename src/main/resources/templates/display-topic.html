@@ -8,7 +8,7 @@
 
   <!-- Bootstrap CSS -->
 
-  <title>Ekşi Sözlük Replica</title>
+  <title>DENEMEEE</title>
   <style>
     .inner-border::-webkit-scrollbar {
       display: none;
@@ -53,29 +53,19 @@
 
   <div class="row flex-grow-1 overflow-hidden">
     <div class="col-3 mh-100 overflow-auto py-2 inner-border">
-      <ul style="list-style-type: none;" th:each="tempTopic: ${topics}">
-        <li><a class="sourtext" th:text="${tempTopic.name}" href="#"></a></li>
-      </ul>
 
     </div>
     <div class="col mh-100 overflow-auto py-2 inner-border">
-      <div th:each="tempEntry: ${entries}">
-        <h4 th:text="${tempEntry.topic != null} ? ${tempEntry.topic.name}"></h4>
-        <p th:text="${tempEntry.content}"></p>
-        <p class="justify-content-end" th:text="${tempEntry.user.username}" style="text-align: right"></p>
-        <p class="justify-content-end" th:text="${tempEntry.createdDate
-        }" style="text-align: right"></p>
-        <hr>
-      </div>
 
-      </div>
+
     </div>
   </div>
-  <div class="row flex-shrink-0 bg-light">
-    <div class="col-12 py-2">
-      <p>Footer ...</p>
-    </div>
+</div>
+<div class="row flex-shrink-0 bg-light">
+  <div class="col-12 py-2">
+    <p>Footer ...</p>
   </div>
+</div>
 </div>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
