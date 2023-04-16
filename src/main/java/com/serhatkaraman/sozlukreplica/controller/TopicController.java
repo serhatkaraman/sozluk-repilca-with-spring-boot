@@ -1,10 +1,13 @@
 package com.serhatkaraman.sozlukreplica.controller;
 
+import com.serhatkaraman.sozlukreplica.entity.Entry;
 import com.serhatkaraman.sozlukreplica.service.EntryService;
 import com.serhatkaraman.sozlukreplica.service.TopicService;
 import com.serhatkaraman.sozlukreplica.service.TopicServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +18,12 @@ import java.util.List;
 @RequestMapping("/topic")
 public class TopicController {
 
-    private TopicService topicService;
-    private EntryService entryService;
 
-    public TopicController(TopicService topicService, EntryService entryService) {
-        this.topicService = topicService;
-        this.entryService = entryService;
-    }
+
+    @Autowired
+    private EntryService entryService;
+    @Autowired
+    private TopicService topicService;
 
     public TopicController() {
 
@@ -34,11 +36,9 @@ public class TopicController {
     }
 
     @GetMapping("/today/{id}")
-    public String getTodayEntries(@PathVariable int id) {
-        System.out.println(java.time.LocalDate.now());
-//        System.out.println(entryService.findTodayEntries("2023-04-12", 4));
-        System.out.println(entryService.getTodayEntries("2023-04-12%", 4));
-
+    public String getTodayEntries(@PathVariable int id, Model model) {
+        List<Entry> todayEntries = entryService.getTodayEntries("2023-04-12%", id);
+        model.addAttribute("todayEntries", todayEntries);
         return "display-topic";
     }
 

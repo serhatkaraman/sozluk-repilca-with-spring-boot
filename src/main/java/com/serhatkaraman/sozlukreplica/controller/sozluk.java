@@ -4,6 +4,7 @@ import com.serhatkaraman.sozlukreplica.entity.Entry;
 import com.serhatkaraman.sozlukreplica.entity.Topic;
 import com.serhatkaraman.sozlukreplica.service.EntryService;
 import com.serhatkaraman.sozlukreplica.service.TopicService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,13 @@ import java.util.Map;
 @RequestMapping("/")
 public class sozluk {
 
+    @Autowired
     private TopicService topicService;
+    @Autowired
     private EntryService entryService;
 
-    public sozluk(TopicService topicService, EntryService entryService) {
-        this.topicService = topicService;
-        this.entryService = entryService;
+    public sozluk() {
+
     }
 
     @GetMapping("/")
