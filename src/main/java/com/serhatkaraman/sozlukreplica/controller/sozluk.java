@@ -32,7 +32,6 @@ public class sozluk {
         List<Entry> entries = entryService.findAll();
         model.addAttribute("topics", topics);
         model.addAttribute("entries", entries);
-        System.out.println(entryService.getTodayEntries("2023-04-12%", 4));
         return "main-page";
     }
 

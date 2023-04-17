@@ -54,9 +54,8 @@
   <div class="row flex-grow-1 overflow-hidden">
     <div class="col-3 mh-100 overflow-auto py-2 inner-border">
       <ul style="list-style-type: none;" th:each="tempTopic: ${topics}">
-        <li><a class="sourtext" th:text="${tempTopic.name}" href="#"></a></li>
+        <li><a class="sourtext" th:text="${tempTopic.name}" th:href="@{/topic/today/{id}(id=${tempTopic.id})}"></a></li>
       </ul>
-
     </div>
     <div class="col mh-100 overflow-auto py-2 inner-border">
       <div th:each="tempEntry: ${entries}">
@@ -72,6 +71,7 @@
   </div>
   <div class="row flex-shrink-0 bg-light">
     <div class="col-12 py-2">
+      <hr>
       <p>Footer ...</p>
     </div>
   </div>

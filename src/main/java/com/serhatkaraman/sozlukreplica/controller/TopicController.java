@@ -1,6 +1,7 @@
 package com.serhatkaraman.sozlukreplica.controller;
 
 import com.serhatkaraman.sozlukreplica.entity.Entry;
+import com.serhatkaraman.sozlukreplica.entity.Topic;
 import com.serhatkaraman.sozlukreplica.service.EntryService;
 import com.serhatkaraman.sozlukreplica.service.TopicService;
 import com.serhatkaraman.sozlukreplica.service.TopicServiceImpl;
@@ -37,7 +38,10 @@ public class TopicController {
 
     @GetMapping("/today/{id}")
     public String getTodayEntries(@PathVariable int id, Model model) {
+        // TODO: argoment of getTodayEntriesSholdubeChanged with today's date + % string
         List<Entry> todayEntries = entryService.getTodayEntries("2023-04-12%", id);
+        List<Topic> todayTopics = topicService.findAll();
+        model.addAttribute("todayTopics", todayTopics);
         model.addAttribute("todayEntries", todayEntries);
         return "display-topic";
     }
